@@ -8,10 +8,24 @@ document.getElementById("frase").innerHTML = x[0];
 document.getElementById("autor").innerHTML = x[1];
 
 
-function novaFrase() {
-   location.reload();
+var base = "f";
+
+
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+const r = randomIntFromInterval(1, 9)
+const g = randomIntFromInterval(1, 9)
+const b = randomIntFromInterval(1, 9)
+var cor = "#"+base+r+base+g+base+b;
+
+console.log(cor);
+document.getElementById("cartao").style.backgroundColor = cor;
+
+function novaFrase() {
+    location.reload();
+ }
 
 function takeshot() {
     html2canvas(document.querySelector(".card")).then(canvas => {
